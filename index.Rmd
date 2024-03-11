@@ -24,7 +24,7 @@ The Greater Atlantic Region Commercial Fishing Business Cost Survey (commercial 
 
 ## Confidentiality  
 
-Data confidentiality is of the utmost important, given the trust issues between industry and NOAA Fisheries. Each individual that accesses the cost data must have a signed non-disclosure agreement which specifies the cost data by name.
+Data confidentiality is of the utmost importance. Each individual that accesses the cost data must have a signed non-disclosure agreement which specifies the cost data by name.
 Data users must be aware of the restrictions with handling Personally Identifiable Information (PII). As a reminder, data cannot be shared through email and must follow the rule of three to protect confidentiality. Data cannot be shared without notifying cost working group staff and obtaining a singed NDA. 
 For any questions or more on the confidentiality of the cost survey data, please contact Samantha Werner (Samantha.Werner@noaa.gov) and Gregory Ardini (Gregory.Ardini@noaa.gov).
 
