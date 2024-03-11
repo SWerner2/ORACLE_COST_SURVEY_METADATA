@@ -1,5 +1,5 @@
 --- 
-title: 'Oracle Cost Survey Metadata '
+title: 'Oracle Cost Survey Metadata'
 author: "Samantha Werner, Gregory Ardini, Elizabeth Conley and Tanya Noteva"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
