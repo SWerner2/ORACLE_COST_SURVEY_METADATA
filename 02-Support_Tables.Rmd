@@ -6,7 +6,7 @@ Here are additional support (aka look-up) tables when using the 2011, 2012, 2015
 
 ## VCS_CAPTAIN_STATUS
 
-```{r chunck 1, echo = FALSE, warning = FALSE, message = FALSE }
+```{r chunk2_1, echo = FALSE, warning = FALSE, message = FALSE }
 library(dplyr)
 library(dbplyr)
 library(readxl)
@@ -14,9 +14,10 @@ library(tidyverse)
 library(knitr)
 library(kableExtra)
 
-setwd("C:/Users/samantha.l.werner/Desktop/Github/ORACLE_COST_SURVEY_METADATA/ORACLE_COST_SURVEY_METADATA/data")
+#setwd("C:/Users/samantha.l.werner/Desktop/Github/ORACLE_COST_SURVEY_METADATA/ORACLE_COST_SURVEY_METADATA/data")
 
-capt_status <- read_excel("Support.xlsx", sheet = "VCS_CAPTAIN_STATUS") 
+
+capt_status <- read_excel(here::here("data/Support.xlsx"), sheet = "VCS_CAPTAIN_STATUS") 
 
 capt<-capt_status
 #COMVAR %>%
@@ -27,17 +28,17 @@ capt<-capt_status
 
 ## VCS_GEARS
 
-```{r chunck 2, echo = FALSE, warning = FALSE, message = FALSE }
-library(dplyr)
-library(dbplyr)
-library(readxl)
-library(tidyverse)
-library(knitr)
-library(kableExtra)
+```{r chunk2_2, echo = FALSE, warning = FALSE, message = FALSE }
+# library(dplyr)
+# library(dbplyr)
+# library(readxl)
+# library(tidyverse)
+# library(knitr)
+# library(kableExtra)
+# 
+# setwd("C:/Users/samantha.l.werner/Desktop/Github/ORACLE_COST_SURVEY_METADATA/ORACLE_COST_SURVEY_METADATA/data")
 
-setwd("C:/Users/samantha.l.werner/Desktop/Github/ORACLE_COST_SURVEY_METADATA/ORACLE_COST_SURVEY_METADATA/data")
-
-GEARS <- read_excel("Support.xlsx", sheet = "VCS_GEARS") 
+GEARS <- read_excel(here::here("data/Support.xlsx"), sheet = "VCS_GEARS") 
 
 gear<-GEARS
 #COMVAR %>%
@@ -50,17 +51,17 @@ gear<-GEARS
 
 ## VCS_INFO_SOURCE
 
-```{r chunck 3, echo = FALSE, warning = FALSE, message = FALSE }
-library(dplyr)
-library(dbplyr)
-library(readxl)
-library(tidyverse)
-library(knitr)
-library(kableExtra)
+```{r chunk2_3, echo = FALSE, warning = FALSE, message = FALSE }
+# library(dplyr)
+# library(dbplyr)
+# library(readxl)
+# library(tidyverse)
+# library(knitr)
+# library(kableExtra)
+# 
+# setwd("C:/Users/samantha.l.werner/Desktop/Github/ORACLE_COST_SURVEY_METADATA/ORACLE_COST_SURVEY_METADATA/data")
 
-setwd("C:/Users/samantha.l.werner/Desktop/Github/ORACLE_COST_SURVEY_METADATA/ORACLE_COST_SURVEY_METADATA/data")
-
-VCS_INFO_SOURCE <- read_excel("Support.xlsx", sheet = "VCS_INFO_SOURCE") 
+VCS_INFO_SOURCE <- read_excel(here::here("data/Support.xlsx"), sheet = "VCS_INFO_SOURCE") 
 
 INFO<-VCS_INFO_SOURCE
 #COMVAR %>%
@@ -68,19 +69,20 @@ INFO<-VCS_INFO_SOURCE
   kable_styling(bootstrap_options = c("striped", "hover", "condensed", full_width=F)) %>%
   scroll_box(width = "600px", height = "300px")
 ```
+
 ## VCS_CREW_PAYMENT_SYSTEMS
 
-```{r chunck 4, echo = FALSE, warning = FALSE, message = FALSE }
-library(dplyr)
-library(dbplyr)
-library(readxl)
-library(tidyverse)
-library(knitr)
-library(kableExtra)
+```{r chunk2_4, echo = FALSE, warning = FALSE, message = FALSE }
+# library(dplyr)
+# library(dbplyr)
+# library(readxl)
+# library(tidyverse)
+# library(knitr)
+# library(kableExtra)
+# 
+# setwd("C:/Users/samantha.l.werner/Desktop/Github/ORACLE_COST_SURVEY_METADATA/ORACLE_COST_SURVEY_METADATA/data")
 
-setwd("C:/Users/samantha.l.werner/Desktop/Github/ORACLE_COST_SURVEY_METADATA/ORACLE_COST_SURVEY_METADATA/data")
-
-VCS_CREW_PAYMENT_SYSTEMS<- read_excel("Support.xlsx", sheet = "VCS_CREW_PAYMENT_SYSTEMS") 
+VCS_CREW_PAYMENT_SYSTEMS<- read_excel(here::here("data/Support.xlsx"), sheet = "VCS_CREW_PAYMENT_SYSTEMS") 
 
 CREW<-VCS_CREW_PAYMENT_SYSTEMS
 #COMVAR %>%
@@ -91,17 +93,17 @@ CREW<-VCS_CREW_PAYMENT_SYSTEMS
 
 ## VCS_STATUS_OPTIONS
 
-```{r chunck 5, echo = FALSE, warning = FALSE, message = FALSE }
-library(dplyr)
-library(dbplyr)
-library(readxl)
-library(tidyverse)
-library(knitr)
-library(kableExtra)
+```{r chunk2_5, echo = FALSE, warning = FALSE, message = FALSE }
+# library(dplyr)
+# library(dbplyr)
+# library(readxl)
+# library(tidyverse)
+# library(knitr)
+# library(kableExtra)
+# 
+# setwd("C:/Users/samantha.l.werner/Desktop/Github/ORACLE_COST_SURVEY_METADATA/ORACLE_COST_SURVEY_METADATA/data")
 
-setwd("C:/Users/samantha.l.werner/Desktop/Github/ORACLE_COST_SURVEY_METADATA/ORACLE_COST_SURVEY_METADATA/data")
-
-VCS_STATUS_OPTIONS<- read_excel("Support.xlsx", sheet = "VCS_STATUS_OPTIONS") 
+VCS_STATUS_OPTIONS<- read_excel(here::here("data/Support.xlsx"), sheet = "VCS_STATUS_OPTIONS") 
 
 STATUS<-VCS_STATUS_OPTIONS
 #COMVAR %>%
@@ -113,17 +115,17 @@ STATUS<-VCS_STATUS_OPTIONS
 
 ## VCS_SURVEY_DETAILS
 
-```{r chunck 6, echo = FALSE, warning = FALSE, message = FALSE }
-library(dplyr)
-library(dbplyr)
-library(readxl)
-library(tidyverse)
-library(knitr)
-library(kableExtra)
+```{r chunk2_6, echo = FALSE, warning = FALSE, message = FALSE }
+# library(dplyr)
+# library(dbplyr)
+# library(readxl)
+# library(tidyverse)
+# library(knitr)
+# library(kableExtra)
+# 
+# setwd("C:/Users/samantha.l.werner/Desktop/Github/ORACLE_COST_SURVEY_METADATA/ORACLE_COST_SURVEY_METADATA/data")
 
-setwd("C:/Users/samantha.l.werner/Desktop/Github/ORACLE_COST_SURVEY_METADATA/ORACLE_COST_SURVEY_METADATA/data")
-
-VCS_SURVEY_DETAILS<- read_excel("Support.xlsx", sheet = "VCS_SURVEY_DETAILS") 
+VCS_SURVEY_DETAILS<- read_excel(here::here("data/Support.xlsx"), sheet = "VCS_SURVEY_DETAILS") 
 
 SURVEY<-VCS_SURVEY_DETAILS
 #COMVAR %>%
@@ -137,17 +139,17 @@ SURVEY<-VCS_SURVEY_DETAILS
 
 ## VCS_COST_CATEGORIES
 
-```{r chunck 7, echo = FALSE, warning = FALSE, message = FALSE }
-library(dplyr)
-library(dbplyr)
-library(readxl)
-library(tidyverse)
-library(knitr)
-library(kableExtra)
+```{r chunk2_7, echo = FALSE, warning = FALSE, message = FALSE }
+# library(dplyr)
+# library(dbplyr)
+# library(readxl)
+# library(tidyverse)
+# library(knitr)
+# library(kableExtra)
 
-setwd("C:/Users/samantha.l.werner/Desktop/Github/ORACLE_COST_SURVEY_METADATA/ORACLE_COST_SURVEY_METADATA/data")
+#setwd("C:/Users/samantha.l.werner/Desktop/Github/ORACLE_COST_SURVEY_METADATA/ORACLE_COST_SURVEY_METADATA/data")
 
-VCS_COST_CATEGORIES<- read_excel("Support.xlsx", sheet = "VCS_COST_CATEGORIES") 
+VCS_COST_CATEGORIES<- read_excel(here::here("data/Support.xlsx"), sheet = "VCS_COST_CATEGORIES") 
 
 CATS<-VCS_COST_CATEGORIES
 #COMVAR %>%
@@ -159,17 +161,17 @@ CATS<-VCS_COST_CATEGORIES
 
 ## VCS_COST_CATEGORIES
 
-```{r chunck 8, echo = FALSE, warning = FALSE, message = FALSE }
-library(dplyr)
-library(dbplyr)
-library(readxl)
-library(tidyverse)
-library(knitr)
-library(kableExtra)
+```{r chunk2_8, echo = FALSE, warning = FALSE, message = FALSE }
+# library(dplyr)
+# library(dbplyr)
+# library(readxl)
+# library(tidyverse)
+# library(knitr)
+# library(kableExtra)
 
-setwd("C:/Users/samantha.l.werner/Desktop/Github/ORACLE_COST_SURVEY_METADATA/ORACLE_COST_SURVEY_METADATA/data")
+#setwd("C:/Users/samantha.l.werner/Desktop/Github/ORACLE_COST_SURVEY_METADATA/ORACLE_COST_SURVEY_METADATA/data")
 
-COST_APP<- read_excel("Support.xlsx", sheet = "costapp") 
+COST_APP<- read_excel(here::here("data/Support.xlsx"), sheet = "costapp") 
 
 APP<-COST_APP
 #COMVAR %>%
@@ -177,12 +179,6 @@ APP<-COST_APP
   kable_styling(bootstrap_options = c("striped", "hover", "condensed", full_width=F)) %>%
   scroll_box(width = "600px", height = "300px")
 ```
-
-
-
-
-
-
 
 
 

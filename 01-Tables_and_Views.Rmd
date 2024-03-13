@@ -12,7 +12,7 @@ output:
 
 **Data warnings:** Crew_Pymts in this year contains both crew and captain payments. Captain_Pymts is null but retained for the cost data application reasons. 
 
-```{r chunck 1, echo = FALSE, warning = FALSE, message = FALSE }
+```{r chunk1_1, echo = FALSE, warning = FALSE, message = FALSE }
 library(dplyr)
 library(dbplyr)
 library(readxl)
@@ -20,15 +20,17 @@ library(tidyverse)
 library(knitr)
 library(kableExtra)
 
-setwd("C:/Users/samantha.l.werner/Desktop/Github/ORACLE_COST_SURVEY_METADATA/ORACLE_COST_SURVEY_METADATA/data")
+#setwd("C:/Users/samantha.l.werner/Desktop/Github/ORACLE_COST_SURVEY_METADATA/ORACLE_COST_SURVEY_METADATA/data")
 
-VCS_Common_Vars <- read_excel("ORACLE_METADATA.xlsx", sheet = "VCS_COMMON_VARIABLES_MV") 
+VCS_Common_Vars <- read_excel(here::here("data/ORACLE_METADATA.xlsx"), sheet = "VCS_COMMON_VARIABLES_MV") 
 
 COMVAR<-VCS_Common_Vars
 #COMVAR %>%
   kbl(COMVAR, "html", caption = 'VCS_COMMON_VARIABLES_MV METADATA') %>%
- kable_styling(bootstrap_options = c("striped", "hover", "condensed", full_width=F)) %>%
+ kable_styling(bootstrap_options = c("striped", "hover", "condensed", full_width=F), 
+               latex_options = c("repeat_header","scale_down"), font_size = 5) %>%
   scroll_box(width = "700px", height = "400px")
+
 ```
 
 
@@ -41,17 +43,17 @@ COMVAR<-VCS_Common_Vars
 
 
 
-```{r chunck 2, echo = FALSE, warning = FALSE, message = FALSE }
-library(dplyr)
-library(dbplyr)
-library(readxl)
-library(tidyverse)
-library(knitr)
-library(kableExtra)
+```{r chunk1_2, echo = FALSE, warning = FALSE, message = FALSE }
+# library(dplyr)
+# library(dbplyr)
+# library(readxl)
+# library(tidyverse)
+# library(knitr)
+# library(kableExtra)
+# 
+# setwd("C:/Users/samantha.l.werner/Desktop/Github/ORACLE_COST_SURVEY_METADATA/ORACLE_COST_SURVEY_METADATA/data")
 
-setwd("C:/Users/samantha.l.werner/Desktop/Github/ORACLE_COST_SURVEY_METADATA/ORACLE_COST_SURVEY_METADATA/data")
-
-VCS_COST2011 <- read_excel("ORACLE_METADATA.xlsx", sheet = "VCS_COST2011") 
+VCS_COST2011 <- read_excel(here::here("data/ORACLE_METADATA.xlsx"), sheet = "VCS_COST2011") 
 
 cost2011<-VCS_COST2011
 #COMVAR %>%
@@ -72,17 +74,17 @@ cost2011<-VCS_COST2011
 
 
 
-```{r chunck 3, echo = FALSE, warning = FALSE, message = FALSE }
-library(dplyr)
-library(dbplyr)
-library(readxl)
-library(tidyverse)
-library(knitr)
-library(kableExtra)
+```{r chunk1_3, echo = FALSE, warning = FALSE, message = FALSE }
+# library(dplyr)
+# library(dbplyr)
+# library(readxl)
+# library(tidyverse)
+# library(knitr)
+# library(kableExtra)
+# 
+# setwd("C:/Users/samantha.l.werner/Desktop/Github/ORACLE_COST_SURVEY_METADATA/ORACLE_COST_SURVEY_METADATA/data")
 
-setwd("C:/Users/samantha.l.werner/Desktop/Github/ORACLE_COST_SURVEY_METADATA/ORACLE_COST_SURVEY_METADATA/data")
-
-VCS_COST2012 <- read_excel("ORACLE_METADATA.xlsx", sheet = "VCS_COST2012") 
+VCS_COST2012 <- read_excel(here::here("data/ORACLE_METADATA.xlsx"), sheet = "VCS_COST2012") 
 
 cost2012<-VCS_COST2012
 #COMVAR %>%
@@ -102,17 +104,17 @@ cost2012<-VCS_COST2012
 
 
 
-```{r chunck 4, echo = FALSE, warning = FALSE, message = FALSE }
-library(dplyr)
-library(dbplyr)
-library(readxl)
-library(tidyverse)
-library(knitr)
-library(kableExtra)
+```{r chunk1_4, echo = FALSE, warning = FALSE, message = FALSE }
+# library(dplyr)
+# library(dbplyr)
+# library(readxl)
+# library(tidyverse)
+# library(knitr)
+# library(kableExtra)
+# 
+# setwd("C:/Users/samantha.l.werner/Desktop/Github/ORACLE_COST_SURVEY_METADATA/ORACLE_COST_SURVEY_METADATA/data")
 
-setwd("C:/Users/samantha.l.werner/Desktop/Github/ORACLE_COST_SURVEY_METADATA/ORACLE_COST_SURVEY_METADATA/data")
-
-VCS_COST2015 <- read_excel("ORACLE_METADATA.xlsx", sheet = "VCS_COST2015") 
+VCS_COST2015 <- read_excel(here::here("data/ORACLE_METADATA.xlsx"), sheet = "VCS_COST2015") 
 
 cost2015<-VCS_COST2015
 #COMVAR %>%
