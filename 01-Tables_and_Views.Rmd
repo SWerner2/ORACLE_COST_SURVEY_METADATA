@@ -12,7 +12,7 @@ output:
 
 **Data warnings:** Crew_Pymts in this year contains both crew and captain payments. Captain_Pymts is null but retained for the cost data application reasons. 
 
-```{r chunk1_1, echo = FALSE, warning = FALSE, message = FALSE }
+```{r chunk1-1, echo = FALSE, warning = FALSE, message = FALSE }
 library(dplyr)
 library(dbplyr)
 library(readxl)
@@ -43,7 +43,7 @@ COMVAR<-VCS_Common_Vars
 
 
 
-```{r chunk1_2, echo = FALSE, warning = FALSE, message = FALSE }
+```{r chunk1-2, echo = FALSE, warning = FALSE, message = FALSE }
 # library(dplyr)
 # library(dbplyr)
 # library(readxl)
@@ -74,7 +74,7 @@ cost2011<-VCS_COST2011
 
 
 
-```{r chunk1_3, echo = FALSE, warning = FALSE, message = FALSE }
+```{r chunk1-3, echo = FALSE, warning = FALSE, message = FALSE }
 # library(dplyr)
 # library(dbplyr)
 # library(readxl)
@@ -104,7 +104,7 @@ cost2012<-VCS_COST2012
 
 
 
-```{r chunk1_4, echo = FALSE, warning = FALSE, message = FALSE }
+```{r chunk1-4, echo = FALSE, warning = FALSE, message = FALSE }
 # library(dplyr)
 # library(dbplyr)
 # library(readxl)

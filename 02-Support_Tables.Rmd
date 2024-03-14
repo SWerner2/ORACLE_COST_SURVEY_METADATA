@@ -6,7 +6,7 @@ Here are additional support (aka look-up) tables when using the 2011, 2012, 2015
 
 ## VCS_CAPTAIN_STATUS
 
-```{r chunk2_1, echo = FALSE, warning = FALSE, message = FALSE }
+```{r chunk2-1, echo = FALSE, warning = FALSE, message = FALSE }
 library(dplyr)
 library(dbplyr)
 library(readxl)
@@ -28,7 +28,7 @@ capt<-capt_status
 
 ## VCS_GEARS
 
-```{r chunk2_2, echo = FALSE, warning = FALSE, message = FALSE }
+```{r chunk2-2, echo = FALSE, warning = FALSE, message = FALSE }
 # library(dplyr)
 # library(dbplyr)
 # library(readxl)
@@ -51,7 +51,7 @@ gear<-GEARS
 
 ## VCS_INFO_SOURCE
 
-```{r chunk2_3, echo = FALSE, warning = FALSE, message = FALSE }
+```{r chunk2-3, echo = FALSE, warning = FALSE, message = FALSE }
 # library(dplyr)
 # library(dbplyr)
 # library(readxl)
@@ -72,7 +72,7 @@ INFO<-VCS_INFO_SOURCE
 
 ## VCS_CREW_PAYMENT_SYSTEMS
 
-```{r chunk2_4, echo = FALSE, warning = FALSE, message = FALSE }
+```{r chunk2-4, echo = FALSE, warning = FALSE, message = FALSE }
 # library(dplyr)
 # library(dbplyr)
 # library(readxl)
@@ -93,7 +93,7 @@ CREW<-VCS_CREW_PAYMENT_SYSTEMS
 
 ## VCS_STATUS_OPTIONS
 
-```{r chunk2_5, echo = FALSE, warning = FALSE, message = FALSE }
+```{r chunk2-5, echo = FALSE, warning = FALSE, message = FALSE }
 # library(dplyr)
 # library(dbplyr)
 # library(readxl)
@@ -115,7 +115,7 @@ STATUS<-VCS_STATUS_OPTIONS
 
 ## VCS_SURVEY_DETAILS
 
-```{r chunk2_6, echo = FALSE, warning = FALSE, message = FALSE }
+```{r chunk2-6, echo = FALSE, warning = FALSE, message = FALSE }
 # library(dplyr)
 # library(dbplyr)
 # library(readxl)
@@ -139,7 +139,7 @@ SURVEY<-VCS_SURVEY_DETAILS
 
 ## VCS_COST_CATEGORIES
 
-```{r chunk2_7, echo = FALSE, warning = FALSE, message = FALSE }
+```{r chunk2-7, echo = FALSE, warning = FALSE, message = FALSE }
 # library(dplyr)
 # library(dbplyr)
 # library(readxl)
@@ -161,7 +161,7 @@ CATS<-VCS_COST_CATEGORIES
 
 ## VCS_COST_CATEGORIES
 
-```{r chunk2_8, echo = FALSE, warning = FALSE, message = FALSE }
+```{r chunk2-8, echo = FALSE, warning = FALSE, message = FALSE }
 # library(dplyr)
 # library(dbplyr)
 # library(readxl)
