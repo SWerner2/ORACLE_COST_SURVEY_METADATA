@@ -17,10 +17,10 @@ github-repo: https://github.com/SWerner2/ORACLE_COST_SURVEY_METADATA
 # Overview 
 
 This website serves as the official metadata for the SSB cost survey data, databased on Oracle. 
-Currenlty survey data from years 2011, 2012, 2015 are databased on Oracle. 
+Currenlty survey data from years 2011, 2012, 2015 are databased on Oracle. The data cleaning processes for the 2011, 2012 and 2015 data are described in Ardini et al. 2022 (see the Additional Resources Chapter).
 
 ## SSB Cost Survey  
-The Greater Atlantic Region Commercial Fishing Business Cost Survey (commercial fishing cost survey or cost survey for short) is a voluntary cost survey of federally permitted vessel owners in the New England and Mid-Atlantic region of the United States. Two main goals of the survey are to collect fixed and quasi-fixed cost information to generate vessel-level profitability estimates, as well as track economic performance over time to inform management decisions. The survey has been implemented intermittently since 2006. 
+The Greater Atlantic Region Commercial Fishing Business Cost Survey (commercial fishing cost survey or cost survey for short) is a voluntary cost survey of federally permitted vessel owners in the New England and Mid-Atlantic region of the United States. Two main goals of the survey are to collect fixed and quasi-fixed cost information to generate vessel-level profitability estimates, as well as track economic performance over time to inform management decisions. The survey has been implemented intermittently since 2006.Over the lifespan of the survey, response rate has ranged from 6.4%-28.9%. For more information on survey response rates over time see Das (2013) and Ardini et al. (2022).
 
 ## Confidentiality  
 
