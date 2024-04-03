@@ -14,7 +14,7 @@ overview
 ssb-cost-survey
 confidentiality
 contacts
-tables-and-views
+main-tables-and-views
 vcs_common_variables_mv
 vcs_cost2011
 vcs_cost2012
@@ -29,4 +29,3 @@ vcs_survey_details
 vcs_cost_categories
 vcs_cost_categories-1
 additional-resources
-main-tables-and-views
