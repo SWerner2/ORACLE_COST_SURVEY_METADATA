@@ -15,15 +15,16 @@ github-repo: https://github.com/SWerner2/ORACLE_COST_SURVEY_METADATA
 ---
 
 # Overview 
-
 This website serves as the official metadata for the SSB cost survey data, databased on Oracle. 
-Currenlty survey data from years 2011, 2012, 2015 are databased on Oracle. The data cleaning processes for the 2011, 2012 and 2015 data are described in Ardini et al. 2022 (see the Additional Resources Chapter).
+Currently survey data from years 2011, 2012, 2015 are databased on Oracle. The data cleaning processes for the 2011, 2012 and 2015 data are described in Ardini et al. 2022 (see the Additional Resources Chapter).
 
 ## SSB Cost Survey  
-The Greater Atlantic Region Commercial Fishing Business Cost Survey (commercial fishing cost survey or cost survey for short) is a voluntary cost survey of federally permitted vessel owners in the New England and Mid-Atlantic region of the United States. Two main goals of the survey are to collect fixed and quasi-fixed cost information to generate vessel-level profitability estimates, as well as track economic performance over time to inform management decisions. The survey has been implemented intermittently since 2006.Over the lifespan of the survey, response rate has ranged from 6.4%-28.9%. For more information on survey response rates over time see Das (2013) and Ardini et al. (2022).
+The Greater Atlantic Region Commercial Fishing Business Cost Survey (commercial fishing cost survey or cost survey for short) is a voluntary cost survey of federally permitted vessel owners in the New England and Mid-Atlantic region of the United States. Two main goals of the survey are to collect fixed and quasi-fixed cost information to generate vessel-level profitability estimates, as well as track economic performance over time to inform management decisions. The survey has been implemented intermittently since 2006.
+
+## Response Rates
+Over the lifespan of the survey, response rate has ranged from 6.4%-28.9%. For more information on survey response rates over time see Das (2013) and Ardini et al. (2022).Though response rates do not always indicate representatives, end users should make themselves aware of the response rates and use their best judgement. Additional research is currently being conducted on the survey data representatives. 
 
 ## Confidentiality  
-
 Data confidentiality is of the utmost importance. Each individual that accesses the cost data must have a signed non-disclosure agreement which specifies the cost data by name.
 Data users must be aware of the restrictions with handling Personally Identifiable Information (PII). As a reminder, data cannot be shared through email and must follow the rule of three to protect confidentiality. Data cannot be shared without notifying cost working group staff and obtaining a singed NDA. 
 For any questions or more on the confidentiality of the cost survey data, please contact Samantha Werner (Samantha.Werner@noaa.gov) and Gregory Ardini (Gregory.Ardini@noaa.gov).
