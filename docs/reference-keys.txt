@@ -12,6 +12,7 @@ tab:chunk2-7
 tab:chunk2-8
 overview
 ssb-cost-survey
+response-rates
 confidentiality
 contacts
 main-tables-and-views
@@ -29,4 +30,3 @@ vcs_survey_details
 vcs_cost_categories
 vcs_cost_categories-1
 additional-resources
-response-rates
