@@ -30,7 +30,7 @@ Data users must be aware of the restrictions with handling Personally Identifiab
 For any questions or more on the confidentiality of the cost survey data, please contact Samantha Werner (Samantha.Werner@noaa.gov) and Gregory Ardini (Gregory.Ardini@noaa.gov).
 
 ## Contacts    
-For questions regarding, the metadata, the Oracle databases(including access), or suggestions, please contact Samantha Werner (Samantha.Werner@noaa.gov) 
+For questions regarding, the metadata, the Oracle databases (including access), or suggestions, please contact Samantha Werner (Samantha.Werner@noaa.gov) 
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages

@@ -8,9 +8,9 @@ output:
 
 ## VCS_COMMON_VARIABLES_MV
 
-**Description:** This view presents common variables collected from the cost survey over time. All values are presented for the year in which they were queried (nominal dollars) and are reported at the vessel-level unless otherwise noted. To be considered a common variable, the variable must appear in two or more cost surveys over time. Given that the survey instrument changed over time, there may be slight discrepancies in the variable over time. Please see the comments for further clarification.The primary key is HULLNUM and SURVEY_YEAR (not VESSEL_NAME).  
+**Description:** This view presents common variables collected from the cost survey over time. All values are presented for the year in which they were queried (nominal dollars) and are reported at the vessel-level unless otherwise noted. To be considered a common variable, the variable must appear in two or more cost surveys over time. Given that the survey instrument changed over time, there may be slight discrepancies in the variable over time. Please see the notes for further clarification.The primary key is HULLNUM and SURVEY_YEAR (not VESSEL_NAME).  
 
-**Data warnings:** Crew_Pymts in this year contains both crew and captain payments. Captain_Pymts is null but retained for the cost data application reasons. 
+**Data warnings:** CREW_PYMTS in this year contains both crew and captain payments. CAPTAIN_PYMTS is null but retained for the cost data application reasons. 
 
 ```{r chunk1-1, echo = FALSE, warning = FALSE, message = FALSE }
 library(dplyr)
@@ -36,7 +36,7 @@ COMVAR<-VCS_Common_Vars
 
 ## VCS_COST2011
 
-**Description:** This view presents common variables collected from the cost survey over time. All values are presented for the year in which they were queried (nominal dollars) and are reported at the vessel-level unless otherwise noted. To be considered a common variable, the variable must appear in two or more cost surveys over time. Given that the survey instrument changed over time, there may be slight discrepancies in the variable over time. Please see the comments for further clarification. The primary key is HULLNUM and SURVEY_YEAR (not VESSEL_NAME).  
+**Description:** This view presents common variables collected from the cost survey over time. All values are presented for the year in which they were queried (nominal dollars) and are reported at the vessel-level unless otherwise noted. To be considered a common variable, the variable must appear in two or more cost surveys over time. Given that the survey instrument changed over time, there may be slight discrepancies in the variable over time. Please see the notes for further clarification. The primary key is HULLNUM and SURVEY_YEAR (not VESSEL_NAME).  
  
 
 **Data warnings:** Crew_Pymts in this year contains both crew and captain payments. Captain_Pymts is null but retained for the cost data application reasons. 
@@ -58,7 +58,8 @@ VCS_COST2011 <- read_excel(here::here("data/ORACLE_METADATA.xlsx"), sheet = "VCS
 cost2011<-VCS_COST2011
 #COMVAR %>%
   kbl(cost2011, "html", caption = 'VCS_COST2011 METADATA') %>%
- kable_styling(bootstrap_options = c("striped", "hover", "condensed", full_width=F)) %>%
+ kable_styling(bootstrap_options = c("striped", "hover", "condensed", full_width=F), 
+               latex_options = c("repeat_header","scale_down"), font_size = 12) %>%
   scroll_box(width = "700px", height = "400px")
 ```
 
@@ -67,10 +68,10 @@ cost2011<-VCS_COST2011
 
 ## VCS_COST2012
 
-**Description:** This is the cleaned data collected from the SSB 2012 cost survey. The costs were mostly at the vessel-level, however, some business-level costs which are described in the data warnings section.  All values are presented for the year in which they were queried (nominal dollars) and are reported at the vessel-level unless otherwise noted.The primary key is HULLNUM and SURVEY_YEAR (not VESSEL_NAME).  
+**Description:** This is the data collected from the SSB 2012 cost survey. The costs were mostly at the vessel-level, however, some business-level costs which are described in the data warnings section.  All values are presented for the year in which they were queried (nominal dollars) and are reported at the vessel-level unless otherwise noted.The primary key is HULLNUM and SURVEY_YEAR (not VESSEL_NAME).  
 
 
-**Data Warnings:** All overhead cost variables are collected for all vessels rather than the vessel-level. This includes the following variables:  SHOP_EXP , OFFICE_EXP , VEHICLE_USAGE_COST , BUSINESS_TRAVEL_COST, ASSOCIATION_FEES , PROFESSIONAL_FEES, BUS_LOAN_PRINCIPAL_COST, BUS_LOAN_INTEREST_COST, ADVERTISING_COST , and  NONCREW_LABOR_COST
+**Data Warnings:** All overhead cost variables are collected for all vessels rather than the vessel-level. This includes the following variables:  SHOP_EXP, OFFICE_EXP, VEHICLE_USAGE_COST, BUSINESS_TRAVEL_COST, ASSOCIATION_FEES, PROFESSIONAL_FEES, BUS_LOAN_PRINCIPAL_COST, BUS_LOAN_INTEREST_COST, ADVERTISING_COST, and NONCREW_LABOR_COST.
 
 
 
@@ -89,7 +90,8 @@ VCS_COST2012 <- read_excel(here::here("data/ORACLE_METADATA.xlsx"), sheet = "VCS
 cost2012<-VCS_COST2012
 #COMVAR %>%
   kbl(cost2012, "html", caption ='VCS_COST2012 METADATA') %>%
-  kable_styling(bootstrap_options = c("striped", "hover", "condensed", full_width=F)) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed", full_width=F), 
+               latex_options = c("repeat_header","scale_down"), font_size = 12) %>%
   scroll_box(width = "700px", height = "400px")
 ```
 
@@ -97,7 +99,7 @@ cost2012<-VCS_COST2012
 
 ## VCS_COST2015
 
-**Description:** This is the cleaned data collected from the SSB 2015 cost survey. The costs collected at the vessel or business-level which will be described in the comments section. Note that variable names may change over time such that office_exp could be for all vessels in one year and the selected vessel in another. All values are presented for the year in which they were queried (nominal dollars) and are reported at the vessel-level unless otherwise noted. The primary key is HULLNUM and SURVEY_YEAR (not VESSEL_NAME).  
+**Description:** This is the data collected from the SSB 2015 cost survey. The costs collected at the vessel or business-level which will be described in the notes section. Note that variable names may change over time such that OFFICE_EXP could be for all vessels in one year and the selected vessel in another. All values are presented for the year in which they were queried (nominal dollars) and are reported at the vessel-level unless otherwise noted. The primary key is HULLNUM and SURVEY_YEAR (not VESSEL_NAME).  
  
 
 **Data Warnings:** All overhead cost variables are collected for all vessels rather than the vessel-level.There may be some variables not included here that are in the survey because there were no responses provided in the dataset. 
@@ -119,7 +121,8 @@ VCS_COST2015 <- read_excel(here::here("data/ORACLE_METADATA.xlsx"), sheet = "VCS
 cost2015<-VCS_COST2015
 #COMVAR %>%
   kbl(cost2015, "html", caption ='VCS_COST2015 METADATA') %>%
-  kable_styling(bootstrap_options = c("striped", "hover", "condensed", full_width=F)) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed", full_width=F), 
+               latex_options = c("repeat_header","scale_down"), font_size = 12) %>%
   scroll_box(width = "700px", height = "400px")
 ```
 
