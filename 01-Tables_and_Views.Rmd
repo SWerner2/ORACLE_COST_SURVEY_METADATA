@@ -39,7 +39,7 @@ COMVAR<-VCS_Common_Vars
 **Description:** This view presents common variables collected from the cost survey over time. All values are presented for the year in which they were queried (nominal dollars) and are reported at the vessel-level unless otherwise noted. To be considered a common variable, the variable must appear in two or more cost surveys over time. Given that the survey instrument changed over time, there may be slight discrepancies in the variable over time. Please see the notes for further clarification. The primary key is HULLNUM and SURVEY_YEAR (not VESSEL_NAME).  
  
 
-**Data warnings:** Crew_Pymts in this year contains both crew and captain payments. Captain_Pymts is null but retained for the cost data application reasons. 
+**Data warnings:** CREW_PYMTS in this year contains both crew and captain payments. CAPTAIN_PYMTS is null but retained for the cost data application reasons. 
 
 
 
