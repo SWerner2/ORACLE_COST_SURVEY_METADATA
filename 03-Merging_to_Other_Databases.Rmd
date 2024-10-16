@@ -1,0 +1,45 @@
+
+# Merging To Other Databases
+
+This page describes how to link cost data to other databases of potential interest. First, you will need to link to an intermediate merging file with the linking variables using the guidance below.
+
+
+## Merging Varaibles Table 
+Merging from VCS_COMMON_VARIABLES_MV to linking table 
+merge on HULLNUM and SURVEY_YEAR
+
+Merging from VCS_costsYYY to linking table 
+2022 – merge on PERMIT & SURVEY_YEAR
+2011 – Merge on HULLNUM and SURVEY_YEAR
+2012 – Merge on HULLNUM and SURVEY_YEAR
+2015– Merge on HULLNUM and SURVEY_YEAR
+
+
+```{r chunk2-1, echo = FALSE, warning = FALSE, message = FALSE }
+library(dplyr)
+library(dbplyr)
+library(readxl)
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+
+#setwd("C:/Users/samantha.l.werner/Desktop/Github/ORACLE_COST_SURVEY_METADATA/ORACLE_COST_SURVEY_METADATA/data")
+
+
+capt_status <- read_excel(here::here("data/Support.xlsx"), sheet = "VCS_CAPTAIN_STATUS") 
+
+capt<-capt_status
+#COMVAR %>%
+  kbl(capt, "html", caption ='VCS_CAPTAIN_STATUS') %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed", full_width=F)) %>%
+  scroll_box(width = "600px", height = "300px")
+```
+
+
+## Merging cost data linking file to other databases
+CAMS – Merge on HULL_ID and YEAR using Last_Year_active in Survey data and date variable from CAMS
+PERMIT VPS_VESSEL – Merge on PERMIT (VP_NUM in permit database) and AP_NUM
+ASM/OBSTRP = HULLNUM and LAST_YEAR ACTIVE 
+
+
+
