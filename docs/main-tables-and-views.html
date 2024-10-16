@@ -23,7 +23,7 @@
 <meta name="author" content="Samantha Werner, Gregory Ardini, Elizabeth Conley and Tanya Noteva" />
 
 
-<meta name="date" content="2024-04-10" />
+<meta name="date" content="2024-10-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -91,6 +91,7 @@
 <li class="chapter" data-level="2.2" data-path="main-tables-and-views.html"><a href="main-tables-and-views.html#vcs_cost2011"><i class="fa fa-check"></i><b>2.2</b> VCS_COST2011</a></li>
 <li class="chapter" data-level="2.3" data-path="main-tables-and-views.html"><a href="main-tables-and-views.html#vcs_cost2012"><i class="fa fa-check"></i><b>2.3</b> VCS_COST2012</a></li>
 <li class="chapter" data-level="2.4" data-path="main-tables-and-views.html"><a href="main-tables-and-views.html#vcs_cost2015"><i class="fa fa-check"></i><b>2.4</b> VCS_COST2015</a></li>
+<li class="chapter" data-level="2.5" data-path="main-tables-and-views.html"><a href="main-tables-and-views.html#vcs_cost2022"><i class="fa fa-check"></i><b>2.5</b> VCS_COST2022</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="support-tables.html"><a href="support-tables.html"><i class="fa fa-check"></i><b>3</b> Support Tables</a>
 <ul>
@@ -103,7 +104,12 @@
 <li class="chapter" data-level="3.7" data-path="support-tables.html"><a href="support-tables.html#vcs_cost_categories"><i class="fa fa-check"></i><b>3.7</b> VCS_COST_CATEGORIES</a></li>
 <li class="chapter" data-level="3.8" data-path="support-tables.html"><a href="support-tables.html#vcs_cost_categories-1"><i class="fa fa-check"></i><b>3.8</b> VCS_COST_CATEGORIES</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="additional-resources.html"><a href="additional-resources.html"><i class="fa fa-check"></i><b>4</b> Additional Resources</a></li>
+<li class="chapter" data-level="4" data-path="merging-to-other-databases.html"><a href="merging-to-other-databases.html"><i class="fa fa-check"></i><b>4</b> Merging To Other Databases</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="merging-to-other-databases.html"><a href="merging-to-other-databases.html#merging-varaibles-table"><i class="fa fa-check"></i><b>4.1</b> Merging Varaibles Table</a></li>
+<li class="chapter" data-level="4.2" data-path="merging-to-other-databases.html"><a href="merging-to-other-databases.html#merging-cost-data-linking-file-to-other-databases"><i class="fa fa-check"></i><b>4.2</b> Merging cost data linking file to other databases</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="additional-resources.html"><a href="additional-resources.html"><i class="fa fa-check"></i><b>5</b> Additional Resources</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -186,16 +192,16 @@ SURVEY_MODE
 NUMBER(1)
 </td>
 <td style="text-align:left;">
-Mode for which the survey was completed (0-online response; 1 - mail response)
+Mode for which the survey was completed (0-online response; 1 - mail response 2- Interivew)
 </td>
 <td style="text-align:left;">
 Yes
 </td>
 <td style="text-align:left;">
-2011, 2012, 2015
+2011, 2012, 2015, 2022
 </td>
 <td style="text-align:left;">
-NA
+The interview option was added for survey year 2022
 </td>
 </tr>
 <tr>
@@ -212,7 +218,7 @@ Name of the vessel
 Yes
 </td>
 <td style="text-align:left;">
-2011, 2012, 2015
+2011, 2012, 2015, 2022
 </td>
 <td style="text-align:left;">
 NA
@@ -232,7 +238,7 @@ Comments from the survey participant recorded at the end of the survey
 Yes
 </td>
 <td style="text-align:left;">
-2011, 2012, 2015
+2011, 2012, 2015, 2022
 </td>
 <td style="text-align:left;">
 NA
@@ -252,7 +258,7 @@ Official vessel registration number
 Yes
 </td>
 <td style="text-align:left;">
-2011, 2012, 2015
+2011, 2012, 2015, 2022
 </td>
 <td style="text-align:left;">
 NA
@@ -272,7 +278,7 @@ Year survey data pertains to
 Yes
 </td>
 <td style="text-align:left;">
-2011, 2012, 2015
+2011, 2012, 2015, 2022
 </td>
 <td style="text-align:left;">
 NA
@@ -286,13 +292,13 @@ GEAR_TYPE
 VARCHAR2(40)
 </td>
 <td style="text-align:left;">
-Primary gear type based on majority revenues from the last year active (Trawl, Gill Nets, Longline, Pots and Traps, Handgear, Dredge, Other)
+Suggest description change to: “Primary gear type based on the highest amount of associated revenues from the last year active (Trawl, Gill Nets, Longline, Pots and Traps, Handgear, Dredge, Other)
 </td>
 <td style="text-align:left;">
 Yes
 </td>
 <td style="text-align:left;">
-2011, 2012, 2015
+2011, 2012, 2015, 2022
 </td>
 <td style="text-align:left;">
 NA
@@ -303,7 +309,7 @@ NA
 VESSEL_AND_PERMITS_VAL
 </td>
 <td style="text-align:left;">
-NUMBER(9)
+NUMBER
 </td>
 <td style="text-align:left;">
 The value of the vessel and fishing permits including equipment, fishing gear, permits, and fishing history
@@ -312,7 +318,47 @@ The value of the vessel and fishing permits including equipment, fishing gear, p
 Yes
 </td>
 <td style="text-align:left;">
-2011, 2012, 2015
+2011, 2012, 2015, 2022
+</td>
+<td style="text-align:left;">
+In 2011, 2012, and 2015, these values are collected as a combined value. In 2022, they are asked separately, but combined here to complete the time series. For 2015, they are asked separately as well, such that adding VESSEL_VAL and PERMITS_VAL will not necessarily provide the same value as VESSEL_AND_PERMITS_VAL.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+VESSEL_VAL
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Estimated market value of the vessel. Fishing gear is included from 2022 on but not in 2015
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+2015, 2022
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PERMITS_VAL
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Estimated market value of the fishing permits or fishing history associated with the vessel.
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+2015, 2022
 </td>
 <td style="text-align:left;">
 NA
@@ -332,7 +378,7 @@ Year vessel owner acquired the vessel
 Yes
 </td>
 <td style="text-align:left;">
-2011, 2012, 2015
+2011, 2012, 2015, 2022
 </td>
 <td style="text-align:left;">
 NA
@@ -363,7 +409,7 @@ NA
 OWNERS_NUM
 </td>
 <td style="text-align:left;">
-NUMBER(2)
+NUMBER
 </td>
 <td style="text-align:left;">
 Number of owners of the selected vessel
@@ -452,7 +498,7 @@ Haul-out costs incurred in the year queried
 Yes
 </td>
 <td style="text-align:left;">
-2011, 2012
+2011, 2012, 2022
 </td>
 <td style="text-align:left;">
 NA
@@ -466,16 +512,16 @@ RMUI_ENGINE_EXP
 NUMBER
 </td>
 <td style="text-align:left;">
-Total annual propulsion engine rmui costs for selected vessel
+Total propulsion engine rmui costs for selected vessel
 </td>
 <td style="text-align:left;">
 Yes
 </td>
 <td style="text-align:left;">
-2011<em>, 2012</em>
+2011<em>, 2012</em> 2022*
 </td>
 <td style="text-align:left;">
-*RM and UI were asked separately for each sub cost category so they are summed to get a combined RMUI value
+*RM and UI were asked separately for each sub cost category so they are summed to get a combined RMUI value. In 2022, “new” costs incurred were added to this section.
 </td>
 </tr>
 <tr>
@@ -486,16 +532,16 @@ RMUI_DECK_EQPT_EXP
 NUMBER
 </td>
 <td style="text-align:left;">
-Total annual deck equipment and other machinery rmui costs for selected vessel
+Total deck equipment and other machinery rmui costs for selected vessel
 </td>
 <td style="text-align:left;">
 Yes
 </td>
 <td style="text-align:left;">
-2011<em>, 2012</em>
+2011<em>, 2012</em> 2022
 </td>
 <td style="text-align:left;">
-*RM and UI were asked separately for each sub cost category so they are summed to get a combined RMUI value
+*RM and UI were asked separately for each sub cost category so they are summed to get a combined RMUI value. In 2022, “new” costs incurred were added to this section.
 </td>
 </tr>
 <tr>
@@ -506,16 +552,16 @@ RMUI_HULL_EXP
 NUMBER
 </td>
 <td style="text-align:left;">
-Total annual hull rmui expenses for selected vessel
+Total hull rmui expenses for selected vessel
 </td>
 <td style="text-align:left;">
 Yes
 </td>
 <td style="text-align:left;">
-2011<em>, 2012</em>
+2011<em>, 2012</em> 2022
 </td>
 <td style="text-align:left;">
-*RM and UI were asked separately for each sub cost category so they are summed to get a combined RMUI value
+*RM and UI were asked separately for each sub cost category so they are summed to get a combined RMUI value. In 2022, “new” costs incurred were added to this section.
 </td>
 </tr>
 <tr>
@@ -526,16 +572,16 @@ RMUI_GEAR_EXP
 NUMBER
 </td>
 <td style="text-align:left;">
-Total annual fishing gear rmui expense cost for selected vessel
+Total fishing gear rmui expense cost for selected vessel
 </td>
 <td style="text-align:left;">
 Yes
 </td>
 <td style="text-align:left;">
-2011<em>, 2012</em>
+2011<em>, 2012</em> 2022
 </td>
 <td style="text-align:left;">
-*RM and UI were asked separately for each sub cost category so they are summed to get a combined RMUI value
+*RM and UI were asked separately for each sub cost category so they are summed to get a combined RMUI value. In 2022, “new” costs incurred were added to this section.
 </td>
 </tr>
 <tr>
@@ -546,16 +592,16 @@ RMUI_ELECTRONICS_EXP
 NUMBER
 </td>
 <td style="text-align:left;">
-Total annual wheelhouse electronics rmui cost for selected vessel
+Total wheelhouse electronics rmui cost for selected vessel
 </td>
 <td style="text-align:left;">
 Yes
 </td>
 <td style="text-align:left;">
-2011<em>, 2012</em>
+2011<em>, 2012</em> 2022
 </td>
 <td style="text-align:left;">
-*RM and UI were asked separately for each sub cost category so they are summed to get a combined RMUI value
+*RM and UI were asked separately for each sub cost category so they are summed to get a combined RMUI value. In 2022, “new” costs incurred were added to this section.
 </td>
 </tr>
 <tr>
@@ -566,16 +612,16 @@ RMUI_PROCESS_REFRIG_EXP
 NUMBER
 </td>
 <td style="text-align:left;">
-Total annual processing/refrigeration rmui cost for selected vessel
+Total processing/refrigeration rmui cost for selected vessel
 </td>
 <td style="text-align:left;">
 Yes
 </td>
 <td style="text-align:left;">
-2011<em>, 2012</em>
+2011<em>, 2012</em> 2022
 </td>
 <td style="text-align:left;">
-*RM and UI were asked separately for each sub cost category so they are summed to get a combined RMUI value
+*RM and UI were asked separately for each sub cost category so they are summed to get a combined RMUI value. In 2022, “new” costs incurred were added to this section.
 </td>
 </tr>
 <tr>
@@ -586,16 +632,16 @@ RMUI_SAFETY_EQPT_EXP
 NUMBER
 </td>
 <td style="text-align:left;">
-Total annual safety equipment rmui cost for selected vessel
+Total safety equipment rmui cost for selected vessel
 </td>
 <td style="text-align:left;">
 Yes
 </td>
 <td style="text-align:left;">
-2011<em>, 2012</em>
+2011<em>, 2012</em> 2022
 </td>
 <td style="text-align:left;">
-*RM and UI were asked separately for each sub cost category so they are summed to get a combined RMUI value
+*RM and UI were asked separately for each sub cost category so they are summed to get a combined RMUI value. In 2022, “new” costs incurred were added to this section.
 </td>
 </tr>
 <tr>
@@ -606,7 +652,7 @@ UI_COST
 NUMBER
 </td>
 <td style="text-align:left;">
-Total summed upgrade costs (when applicable)
+Total summed upgrade costs (when applicable, see note)
 </td>
 <td style="text-align:left;">
 Yes
@@ -626,7 +672,7 @@ RM_COST
 NUMBER
 </td>
 <td style="text-align:left;">
-Total summed repair and maintenance costs (when applicable, see comment)
+Total summed repair and maintenance costs (when applicable, see note)
 </td>
 <td style="text-align:left;">
 Yes
@@ -646,7 +692,7 @@ RMUI_COST
 NUMBER
 </td>
 <td style="text-align:left;">
-Total summed upgrade and improvement and repair and maintenance costs (when applicable, see comment)
+Total summed upgrade and improvement and repair and maintenance costs (when applicable, see note)
 </td>
 <td style="text-align:left;">
 Yes
@@ -666,13 +712,13 @@ MOORING_FEES
 NUMBER(9)
 </td>
 <td style="text-align:left;">
-Total annual mooring/dockage fees for the selected vessel
+Total mooring/dockage fees for the selected vessel
 </td>
 <td style="text-align:left;">
 Yes
 </td>
 <td style="text-align:left;">
-2011, 2012, 2015
+2011, 2012, 2015, 2022
 </td>
 <td style="text-align:left;">
 NA
@@ -686,13 +732,13 @@ PERMIT_FEES
 NUMBER(9)
 </td>
 <td style="text-align:left;">
-Total annual state and Federal Permits and/or License Renewal Fees for the selected vessel
+Total state and Federal Permits and/or License Renewal Fees for the selected vessel
 </td>
 <td style="text-align:left;">
 Yes
 </td>
 <td style="text-align:left;">
-2011, 2012, 2015
+2011, 2012, 2015, 2022
 </td>
 <td style="text-align:left;">
 NA
@@ -712,7 +758,7 @@ Vessel insurance cost of the selected vessel including premium paid for hull and
 Yes
 </td>
 <td style="text-align:left;">
-2011, 2012, 2015
+2011, 2012, 2015, 2022
 </td>
 <td style="text-align:left;">
 NA
@@ -732,7 +778,7 @@ Number of months selected vessel was insured
 Yes
 </td>
 <td style="text-align:left;">
-2011, 2012, 2015
+2011, 2012, 2015, 2022
 </td>
 <td style="text-align:left;">
 NA
@@ -746,16 +792,16 @@ FUEL_COST
 NUMBER
 </td>
 <td style="text-align:left;">
-Total annual fuel cost for selected vessel
+Total fuel cost for selected vessel
 </td>
 <td style="text-align:left;">
 Yes
 </td>
 <td style="text-align:left;">
-2011, 2012
+2011, 2012, 2022
 </td>
 <td style="text-align:left;">
-Includes oil and filter for 2011 and 2012
+Includes oil and filter for 2011 and 2012. If the average cost per trip column was filled in the 2022 survey, this value was multiplied by the number of trips and is presented here.
 </td>
 </tr>
 <tr>
@@ -766,16 +812,16 @@ BAIT_COST
 NUMBER
 </td>
 <td style="text-align:left;">
-Total annual bait cost for selected vessel
+Total bait cost for selected vessel
 </td>
 <td style="text-align:left;">
 Yes
 </td>
 <td style="text-align:left;">
-2011, 2012
+2011, 2012, 2022
 </td>
 <td style="text-align:left;">
-NA
+If the average cost per trip column was filled in the 2022 survey, this value was multiplied by the number of trips and is presented here.
 </td>
 </tr>
 <tr>
@@ -786,16 +832,16 @@ FOOD_COST
 NUMBER
 </td>
 <td style="text-align:left;">
-Total annual food cost for selected vessel
+Total food cost for selected vessel
 </td>
 <td style="text-align:left;">
 Yes
 </td>
 <td style="text-align:left;">
-2011, 2012
+2011, 2012, 2022
 </td>
 <td style="text-align:left;">
-NA
+If the average cost per trip column was filled in the 2022 survey, this value was multiplied by the number of trips and is presented here.
 </td>
 </tr>
 <tr>
@@ -806,16 +852,16 @@ ICE_COST
 NUMBER
 </td>
 <td style="text-align:left;">
-Total annual ice cost for selected vessel
+Total ice cost for selected vessel
 </td>
 <td style="text-align:left;">
 Yes
 </td>
 <td style="text-align:left;">
-2011, 2012
+2011, 2012, 2022
 </td>
 <td style="text-align:left;">
-NA
+If the average cost per trip column was filled in the 2022 survey, this value was multiplied by the number of trips and is presented here.
 </td>
 </tr>
 <tr>
@@ -826,16 +872,16 @@ CATCH_HANDLING_COST
 NUMBER
 </td>
 <td style="text-align:left;">
-Total annual catch handling cost such as auction, lumping, grading, shipping etc. for selected vessel
+Total catch handling cost such as auction, lumping, grading, shipping etc. for selected vessel
 </td>
 <td style="text-align:left;">
 Yes
 </td>
 <td style="text-align:left;">
-2011, 2012
+2011, 2012, 2022
 </td>
 <td style="text-align:left;">
-2012 includes the cost of sales representatives
+2012 includes the cost of sales representatives. If the average cost per trip column was filled in the 2022 survey, this value was multiplied by the number of trips and is presented here.
 </td>
 </tr>
 <tr>
@@ -852,7 +898,7 @@ Captain type for the majority of trips taken; (Examples: Mostly Hired Captain, M
 Yes
 </td>
 <td style="text-align:left;">
-2011, 2012, 2015
+2011, 2012, 2015, 2022
 </td>
 <td style="text-align:left;">
 The “split evenly” and “no trips” options were only provided in 2015 survey. 2011 and 2012 only had mostly owner-operated, mostly hired captain, and other as selection options.
@@ -952,10 +998,10 @@ Quota or DAS lease-in costs including estimated value of non-monetary payments
 Yes
 </td>
 <td style="text-align:left;">
-2011, 2012, 2015
+2011, 2012, 2015, 2022
 </td>
 <td style="text-align:left;">
-NA
+In 2022, individuals could report the quota payments for the selected vessel or across multiple vessels. If the latter was reported, the value was divided by the numer of vessels the quota was spread across (Question 17)
 </td>
 </tr>
 <tr>
@@ -972,10 +1018,10 @@ Total summed costs from the vessel expense section - mooring fees, permit fees, 
 Yes
 </td>
 <td style="text-align:left;">
-2011, 2012, 2015
+2011, 2012, 2015, 2022
 </td>
 <td style="text-align:left;">
-Overhead costs were calculated at the vessel-level for 2012 and 2015 (divided by the number of vessels owned) but apportioned by the respondent in 2011
+NA
 </td>
 </tr>
 <tr>
@@ -986,16 +1032,16 @@ BUSINESS_TRAVEL_COST
 NUMBER
 </td>
 <td style="text-align:left;">
-Total annual business travel cost such as business associated lodging, travel, and transportation with the selected vessel
+Total business travel cost such as business associated lodging, travel, and transportation with the selected vessel
 </td>
 <td style="text-align:left;">
 Yes
 </td>
 <td style="text-align:left;">
-2011, 2012, 2015
+2011, 2012, 2015, 2022
 </td>
 <td style="text-align:left;">
-Overhead costs were calculated at the vessel-level for 2012 and 2015 (divided by the number of vessels owned) but apportioned by the respondent in 2011
+Overhead costs were collected at the business level for 2012 and 2015 but are presented here at the vessel level, calculated by dividing by the number of vessels owned. In 2011, the respondent was asked to report the cost for only the selected vessel. In 2022, the respondent was asked to either provide the overhead cost pertaining to the selected vessel or for thier entire business. If the latter was reported, this value is prestented here after dividing by the number of vessels owned (Q13).
 </td>
 </tr>
 <tr>
@@ -1006,16 +1052,16 @@ VEHICLE_USAGE_COST
 NUMBER
 </td>
 <td style="text-align:left;">
-Total annual business vehicle usage costs apportioned to the selected vessel
+Total business vehicle usage costs apportioned to the selected vessel
 </td>
 <td style="text-align:left;">
 Yes
 </td>
 <td style="text-align:left;">
-2011, 2012, 2015
+2011, 2012, 2015, 2022
 </td>
 <td style="text-align:left;">
-Overhead costs were calculated at the vessel-level for 2012 and 2015 (divided by the number of vessels owned) but apportioned by the respondent in 2011
+Overhead costs were collected at the business level for 2012 and 2015 but are presented here at the vessel level, calculated by dividing by the number of vessels owned. In 2011, the respondent was asked to report the cost for only the selected vessel. In 2022, the respondent was asked to either provide the overhead cost pertaining to the selected vessel or for thier entire business. If the latter was reported, this value is prestented here after dividing by the number of vessels owned (Q13).
 </td>
 </tr>
 <tr>
@@ -1026,16 +1072,16 @@ ASSOCIATION_FEES
 NUMBER
 </td>
 <td style="text-align:left;">
-Association fees paid including fishing organization, sector fees, and union dues for the selected vessel
+Association fees paid including co-operative, fishing organization, sector fees, and union dues for the selected vessel
 </td>
 <td style="text-align:left;">
 Yes
 </td>
 <td style="text-align:left;">
-2011, 2012, 2015
+2011, 2012, 2015, 2022
 </td>
 <td style="text-align:left;">
-Overhead costs were calculated at the vessel-level for 2012 and 2015 (divided by the number of vessels owned) but apportioned by the respondent in 2011
+Overhead costs were collected at the business level for 2012 and 2015 but are presented here at the vessel level, calculated by dividing by the number of vessels owned. In 2011, the respondent was asked to report the cost for only the selected vessel. In 2022, the respondent was asked to either provide the overhead cost pertaining to the selected vessel or for thier entire business. If the latter was reported, this value is prestented here after dividing by the number of vessels owned (Q13).
 </td>
 </tr>
 <tr>
@@ -1052,10 +1098,10 @@ Professional fees paid including settlement, legal and accounting apportioned to
 Yes
 </td>
 <td style="text-align:left;">
-2011, 2012, 2015
+2011, 2012, 2015, 2022
 </td>
 <td style="text-align:left;">
-Overhead costs were calculated at the vessel-level for 2012 and 2015 (divided by the number of vessels owned) but apportioned by the respondent in 2011
+Overhead costs were collected at the business level for 2012 and 2015 but are presented here at the vessel level, calculated by dividing by the number of vessels owned. In 2011, the respondent was asked to report the cost for only the selected vessel. In 2022, the respondent was asked to either provide the overhead cost pertaining to the selected vessel or for thier entire business. If the latter was reported, this value is prestented here after dividing by the number of vessels owned (Q13). Legal fees were collected seperately in 2022 but are summarized here.
 </td>
 </tr>
 <tr>
@@ -1072,10 +1118,10 @@ Vessel/permit/business loan payments made in the respective year, see notes for 
 Yes
 </td>
 <td style="text-align:left;">
-2011, 2012, 2015
+2011, 2012, 2015, 2022**
 </td>
 <td style="text-align:left;">
-In 2011, 2012 and 2015, this variable includes principal paid on business loans and Interest paid on business loans (apportioned by vessel by dividing by the number of owned vessels for 2012 and 2015). Overhead costs were calculated at the vessel-level for 2012 and 2015 (divided by the number of vessels owned) but apportioned by the respondent in 2015.
+In 2011, 2012 and 2015, this variable includes principal paid on business loans and Interest paid on business loans while in 2022 it includes amount paid on down payments or loans on vessel/permit purchases (including tax). Overhead costs were calculated at the business-level for 2012 and 2015, but presented here by dividing by the number of vessels owned but apportioned by the respondent to the vessel level in 2011 and 2022.
 </td>
 </tr>
 <tr>
@@ -1083,7 +1129,7 @@ In 2011, 2012 and 2015, this variable includes principal paid on business loans 
 QUOTA_MONITORING_COST
 </td>
 <td style="text-align:left;">
-NUMBER(9)
+NUMBER
 </td>
 <td style="text-align:left;">
 Total quota monitoring costs (observer or dockside monitoring costs) for the selected vessel
@@ -1092,10 +1138,10 @@ Total quota monitoring costs (observer or dockside monitoring costs) for the sel
 Yes
 </td>
 <td style="text-align:left;">
-2011, 2012, 2015
+2011, 2012, 2015, 2022
 </td>
 <td style="text-align:left;">
-Overhead costs were calculated at the vessel-level for 2012 and 2015 (divided by the number of vessels owned) but apportioned by the respondent in 2011
+Overhead costs were collected at the business level for 2012 and 2015 but are presented here at the vessel level, calculated by dividing by the number of vessels owned. In 2011, the respondent was asked to report the cost for only the selected vessel.
 </td>
 </tr>
 <tr>
@@ -1106,16 +1152,16 @@ ADVERTISING_COST
 NUMBER
 </td>
 <td style="text-align:left;">
-Total annual advertising costs for the selected vessel
+Total advertising costs for the selected vessel
 </td>
 <td style="text-align:left;">
 Yes
 </td>
 <td style="text-align:left;">
-2011, 2012, 2015
+2011, 2012, 2015, 2022
 </td>
 <td style="text-align:left;">
-Overhead costs were calculated at the vessel-level for 2012 and 2015 (divided by the number of vessels owned) but apportioned by the respondent in 2011
+If cost is provided for all owned vessels, divide by number of vessels owned (Q13)
 </td>
 </tr>
 <tr>
@@ -1126,16 +1172,16 @@ COMMUNICATION_COST
 NUMBER
 </td>
 <td style="text-align:left;">
-Total annual communications costs for the selected vessel
+Total communications costs for the selected vessel
 </td>
 <td style="text-align:left;">
 Yes
 </td>
 <td style="text-align:left;">
-2011, 2012
+2011, 2012, 2022
 </td>
 <td style="text-align:left;">
-Overhead costs were calculated at the vessel-level for 2012 and 2015 (divided by the number of vessels owned) but apportioned by the respondent in 2011
+If cost is provided for all owned vessels, divide by number of vessels owned (Q13)
 </td>
 </tr>
 <tr>
@@ -1146,16 +1192,16 @@ OFFICE_EXP
 NUMBER
 </td>
 <td style="text-align:left;">
-Total annual office/workshop/storage expenses apportioned to the selected vessel
+Total office/workshop/storage expenses apportioned to the selected vessel
 </td>
 <td style="text-align:left;">
 Yes
 </td>
 <td style="text-align:left;">
-2011, 2012, 2015
+2011, 2012, 2015, 2022
 </td>
 <td style="text-align:left;">
-SHOP_EXP and OFFICE_EXP variables were combined for survey years 2011 and 2012 to generate this variable for those years. In 2015, workshop or office expenses were not collected.Overhead costs were calculated at the vessel-level for 2012 and 2015 (divided by the number of vessels owned) but apportioned by the respondent in 2011
+If cost is provided for all owned vessels, divide by number of vessels owned (Q13)
 </td>
 </tr>
 <tr>
@@ -1166,17 +1212,17 @@ NONCREW_LABOR_COST
 NUMBER
 </td>
 <td style="text-align:left;">
-Total annual payment made for non-crew labor including payments to accountants, office administrative
+Total payment made for non-crew labor including payments to accountants, office administrative
 assistants, bookkeepers, and night watchmen apportioned to selected vessel
 </td>
 <td style="text-align:left;">
 Yes
 </td>
 <td style="text-align:left;">
-2011, 2012, 2015
+2011, 2012, 2015, 2022
 </td>
 <td style="text-align:left;">
-Overhead costs were calculated at the vessel-level for 2012 and 2015 (divided by the number of vessels owned) but apportioned by the respondent in 2011
+If cost is provided for all owned vessels, divide by number of vessels owned (Q13)
 </td>
 </tr>
 <tr>
@@ -1194,10 +1240,10 @@ Business Travel Costs, Association Fees Paid, Professional Fees Paid, Advertisin
 Yes
 </td>
 <td style="text-align:left;">
-2011, 2012, 2015
+2011, 2012, 2015, 2022
 </td>
 <td style="text-align:left;">
-Overhead costs were calculated at the vessel-level for 2012 and 2015 (divided by the number of vessels owned) but apportioned by the respondent in 2011
+If cost is provided for all owned vessels, divide by number of vessels owned (Q13)
 </td>
 </tr>
 <tr>
@@ -1208,13 +1254,13 @@ CREW_PYMTS
 NUMBER(9)
 </td>
 <td style="text-align:left;">
-Total annual payment to crew for selected vessel
+Total payment to crew for selected vessel
 </td>
 <td style="text-align:left;">
 Yes
 </td>
 <td style="text-align:left;">
-2012, 2015
+2012, 2015, 2022
 </td>
 <td style="text-align:left;">
 NA
@@ -1234,7 +1280,7 @@ Total amount paid in benefits to crew and hired captain on the selected vessel
 Yes
 </td>
 <td style="text-align:left;">
-2011, 2012, 2015
+2011, 2012, 2015, 2022
 </td>
 <td style="text-align:left;">
 NA
@@ -1248,13 +1294,13 @@ CAPTAIN_PYMTS
 NUMBER
 </td>
 <td style="text-align:left;">
-Total annual payment to hired captains for selected vessel
+Total payment to hired captains for selected vessel
 </td>
 <td style="text-align:left;">
 Yes
 </td>
 <td style="text-align:left;">
-2012, 2015
+2012, 2015, 2022
 </td>
 <td style="text-align:left;">
 NA
@@ -1274,10 +1320,10 @@ Summed crew and hired captain payments
 Yes
 </td>
 <td style="text-align:left;">
-2011, 2012<em>, 2015</em>
+2011, 2012<em>, 2015</em> 2022*
 </td>
 <td style="text-align:left;">
-NA
+Crew pay and captain pay were collected seperatley for 2012, 2015 and 2022. The sum of those two values is presented here.
 </td>
 </tr>
 <tr>
@@ -1288,16 +1334,16 @@ VESSELS_NUM
 NUMBER
 </td>
 <td style="text-align:left;">
-Number of vessels operated or maintained for fishing business
+Number of vessels operated or maintained for the fishing business
 </td>
 <td style="text-align:left;">
 Yes
 </td>
 <td style="text-align:left;">
-2012, 2015
+2012, 2015, 2022
 </td>
 <td style="text-align:left;">
-NA
+In 2022, this is the number of vessels owned by the owner.
 </td>
 </tr>
 <tr>
@@ -1314,10 +1360,10 @@ Total revenue received from leasing out quota or DAS
 Yes
 </td>
 <td style="text-align:left;">
-2015
+2015, 2022
 </td>
 <td style="text-align:left;">
-NA
+In 2015, this value was asked at the business level, but is reported here at the vessel level by dividing by the number of vessels owned.
 </td>
 </tr>
 <tr>
@@ -1337,7 +1383,7 @@ Yes
 2011, 2012, 2015
 </td>
 <td style="text-align:left;">
-Includes: OTHR_VES_COST1 OTHR_VES_COST2 from 2011, OTHR_VES_COST1 OTHR_VES_COST2 from 2012 and OTHER_VESSEL_COST from 2015
+Includes: OTHR_VES_COST1 and OTHR_VES_COST2 from 2011 , 2012 and 2022 and OTHER_VESSEL_COST from 2015
 </td>
 </tr>
 <tr>
@@ -1368,7 +1414,7 @@ WATER_COST
 NUMBER
 </td>
 <td style="text-align:left;">
-Total annual fresh water costs for the selected vessel
+Total fresh water costs for the selected vessel
 </td>
 <td style="text-align:left;">
 Yes
@@ -1388,7 +1434,7 @@ FISHING_SPLY_COST
 NUMBER
 </td>
 <td style="text-align:left;">
-Total annual cost for general fishing supplies such as knives, picks, hooks, boxes, bags, ties, lobster bands, rags,
+Total cost for general fishing supplies such as knives, picks, hooks, boxes, bags, ties, lobster bands, rags,
 tape, links/rings, lines/twine etc.
 </td>
 <td style="text-align:left;">
@@ -1409,7 +1455,7 @@ CREW_SPLY_COST
 NUMBER
 </td>
 <td style="text-align:left;">
-Total annual cost for general crew supplies such as gloves, boot liners, foul weather gear etc.
+Total cost for general crew supplies such as gloves, boot liners, foul weather gear etc.
 </td>
 <td style="text-align:left;">
 Yes
@@ -1429,7 +1475,7 @@ OTHER_OPERATING_COST
 NUMBER
 </td>
 <td style="text-align:left;">
-Other annual operating costs not collected in the survey
+Other operating costs not collected in the survey
 </td>
 <td style="text-align:left;">
 Yes
@@ -1446,7 +1492,7 @@ NA
 CREW_SIZE
 </td>
 <td style="text-align:left;">
-NUMBER(4)
+NUMBER
 </td>
 <td style="text-align:left;">
 Average size of the crew excluding the captain in terms of crew members
@@ -1566,7 +1612,7 @@ No “other” option was presented in 2011.
 PERSONAL_HEALTH_INS_COST
 </td>
 <td style="text-align:left;">
-NUMBER(9)
+NUMBER
 </td>
 <td style="text-align:left;">
 Cost participant did have personal health insurance
@@ -1596,6 +1642,26 @@ Yes
 </td>
 <td style="text-align:left;">
 2012, 2015
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+COST_INFO_SOURCE
+</td>
+<td style="text-align:left;">
+VARCHAR2(200)
+</td>
+<td style="text-align:left;">
+Source of costs provided in the survey include directly from records, best estimates, or both.
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+2015, 2022
 </td>
 <td style="text-align:left;">
 NA
@@ -2958,7 +3024,7 @@ CREWPAY_OTHER
 VARCHAR2(2000 BYTE)
 </td>
 <td style="text-align:left;">
-Description of other methods to pay crew
+Description of other methods to pay crew if the share system was not appropriate
 </td>
 <td style="text-align:left;">
 Yes
@@ -6366,9 +6432,1881 @@ Imputed number of vessels owned based on the PERSON_ID variable, in the case num
 Imputed number of vessels
 </td>
 </tr>
+<tr>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+OTHER_VESSEL_COST1_DESC
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+Other cost1 description for additional cost associated with selected vessel
+</td>
+<td style="text-align:left;">
+Sam to take care of this
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+OTHER_VESSEL_COST2_DESC
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+Other cost2 description for additional cost associated with selected vessel
+</td>
+<td style="text-align:left;">
+Sam to take care of this
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+OTHER_BUSINESS_COST1_DESC
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+Other cost1 description for additional cost associated with the entire fishing business
+</td>
+<td style="text-align:left;">
+Sam to take care of this
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+OTHER_BUSINESS_COST2_DESC
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+Other cost2 description for additional cost associated with the entire fishing business
+</td>
+<td style="text-align:left;">
+Sam to take care of this
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+OWNER_TYPE_OTHER_DESC
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+Ownership type if not one of the multiple choice options presented
+</td>
+<td style="text-align:left;">
+This column had only a few entries and was combined with OWNER_TYPE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CREW_NOSHARE_COMP_METHD_DESC
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+If an other flat rate compensation method was used, the description is added here.
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PERSONAL_HEALTH_INS_OTHER_DESC
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+Description if another form of health insurance was used that was not one of the multiple choices.
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CREW_NUM_BENEFITS
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+Number of crew that were paid benefits
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
 </tbody>
 </table>
 </div>
+</div>
+<div id="vcs_cost2022" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> VCS_COST2022<a href="main-tables-and-views.html#vcs_cost2022" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Description:</strong> This is the data collected from the SSB 2022 cost survey. The costs collected at the vessel or business-level which will be described in the notes section. Note that variable names may change over time such that OFFICE_EXP could be for all vessels in one year and the selected vessel in another. All values are presented for the year in which they were queried (nominal dollars) and are reported at the vessel-level unless otherwise noted. The primary key is HULLNUM and SURVEY_YEAR (not VESSEL_NAME).</p>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; overflow-x: scroll; width:700px; ">
+<table class="table table-striped table-hover table-condensed" style="font-size: 12px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:chunk1-5">Table 2.5: </span>VCS_COST2022 METADATA
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Variable Name
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Type
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Description
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Notes
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+ACCESS_MODE
+</td>
+<td style="text-align:left;">
+VARCHAR2(20)
+</td>
+<td style="text-align:left;">
+Access Mode (online method of access or NA if taken via interview or mail)
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ACT_COM_VESSELS_OWNED_NUM
+</td>
+<td style="text-align:left;">
+NUMBER(2)
+</td>
+<td style="text-align:left;">
+Number of active commercial vessels owned by the vessel owner
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ADVERTISING_COST
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Advertizing costs for the selected vessel
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ADVERTISING_COST_ALLVES
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Advertising costs for all vessels owned
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ASSOCIATION_FEES
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Total annual association fees paid including co-operative,
+fishing organization, sector fees, and union dues for the selected vessel
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ASSOCIATION_FEES_ALLVES
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Number of vessels owned by the vessel owner. This question was only presented to those who answered a question related to multiple vessels.
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AT_SEA_PROCESSING_COST
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Total annual At-sea Processing, At-sea Boxing/Packaging costs
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BAIT_AVG_TRIP_COST
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Average cost per trip for bait
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BAIT_COST
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Total annual bait cost
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BROWSER_NAME
+</td>
+<td style="text-align:left;">
+VARCHAR2(80)
+</td>
+<td style="text-align:left;">
+Web browser used (Safari, Chrome, Firefox, etc.) to complete the survey, where applicable
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BROWSER_VERSION
+</td>
+<td style="text-align:left;">
+NUMBER(7,3)
+</td>
+<td style="text-align:left;">
+Browser numeric version numer. Eg. FIrefox 3.4 where 3.4 is the version
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BUSINESS_TRAVEL_COST
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Total annual annual buisiness travel cost associated with the selected vessel
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BUSINESS_TRAVEL_COST_ALLVES
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Total annual annual buisiness travel cost associated with all vessels owned
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CAPTAIN_PYMTS
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Total annual payment to hired captains
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CAPTAIN_STATUS
+</td>
+<td style="text-align:left;">
+VARCHAR2(30)
+</td>
+<td style="text-align:left;">
+Who was the captiain for the majority of commercial trips taken in 2022 see the lookup table VCS_CAPTAIN_STATUS for corresponding descritption (Examples: Mostly Hired Captain, Mostly Owner-operated, Split Evenly, No Trips This Year, Other)
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CATCH_HANDLING_AVG_TRIP_COST
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Average cost per trip for catch handling for auction, lumping, grading, shipping/trucking, and unloading. Not including costs that were captured in ex-vessel prices.
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CATCH_HANDLING_COST
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Total annual catch handling costs for auction, lumping, grading, shipping/trucking, and unloading. Not including costs that were captured in ex-vessel prices.
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+COMMENTS
+</td>
+<td style="text-align:left;">
+VARCHAR2(4000)
+</td>
+<td style="text-align:left;">
+Comments from the survey participant recorded at the end of the survey
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+COMMERCIAL_TRIPS_NUM
+</td>
+<td style="text-align:left;">
+NUMBER(10)
+</td>
+<td style="text-align:left;">
+Number of commercial fishing/shellfishing trips taken by the selected vessel in 2022
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+COMMUNICATION_COST
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Total annual communications costs including cell/landline phones, office radio, VMS operational fees (not including the cost of new/upgraded VMS) systems) etc. for the selected vessel
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+COMMUNICATION_COST_ALLVES
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Total annual communications costs including cell/landline phones, office radio, VMS operational fees (not including the cost of new/upgraded VMS) systems) etc. for all owned vessels
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+COMPLETE_1
+</td>
+<td style="text-align:left;">
+NUMBER(1)
+</td>
+<td style="text-align:left;">
+“Complete_1” based off of at least one cost question was filled (not skipped) (where a cost question is any qualitative or quantitative question related to costs or permit/ves values)
+</td>
+<td style="text-align:left;">
+To create the common var dispposition—-Disp 1 = partial, disp 2 = complete (where disp 2 overrides disp 1)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+COMPLETE_2
+</td>
+<td style="text-align:left;">
+NUMBER(1)
+</td>
+<td style="text-align:left;">
+Complete_2 based off of navigating and filling (not skipping) Question 22 or any of the contact information at the of the survey (excluding filling comments as these may have been refusals).
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CONNECTIONS_NUM
+</td>
+<td style="text-align:left;">
+NUMBER(2)
+</td>
+<td style="text-align:left;">
+Number of connections made when filling the survey online or on mobile device
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CONTACT_VIA_EMAIL
+</td>
+<td style="text-align:left;">
+VARCHAR2(3)
+</td>
+<td style="text-align:left;">
+Particpant perfers to be contacted via email
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CONTACT_VIA_PHONE
+</td>
+<td style="text-align:left;">
+VARCHAR2(3)
+</td>
+<td style="text-align:left;">
+Particpant perfers to be contacted via phone
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+COST_INFO_SOURCE
+</td>
+<td style="text-align:left;">
+NUMBER(1)
+</td>
+<td style="text-align:left;">
+Source of costs provided in the survey. Use lookup table VCS_INFO_SOURCES for key (examples include directly from records, best estimates, or both)
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CREW_BENEFITS_VAL
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Total amount paid in benefits to crew and hired captain, including holiday bonuses and profit sharing
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CREW_CAPTAIN_PRESENT
+</td>
+<td style="text-align:left;">
+VARCHAR2(3)
+</td>
+<td style="text-align:left;">
+Did the selected vessel have crew present for any trips taken in 2022: 1) yes, 2) no
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CREW_PYMTS
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Total annual payment to crew
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CREW_PYMT_SYS_OTHER_DESC
+</td>
+<td style="text-align:left;">
+VARCHAR2(2000)
+</td>
+<td style="text-align:left;">
+Description of alternative crew payment system if a flat rate system, share system, or combination of a flat rate system AND a share system was not used.
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+DATA_ENTRY_NOTES
+</td>
+<td style="text-align:left;">
+VARCHAR2(4000)
+</td>
+<td style="text-align:left;">
+Notes added during the time of data entry by SSB staff
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+DATE_RECEIVED
+</td>
+<td style="text-align:left;">
+DATE
+</td>
+<td style="text-align:left;">
+Date the survey was submitted (online) or received by SSB researchers at the main lab (mail) or when the interview was conducted (interview).
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+DEVICE_NAME
+</td>
+<td style="text-align:left;">
+VARCHAR2(80)
+</td>
+<td style="text-align:left;">
+Device (Tablet, Smartphone, Computer) which was used to fill the survey, where applicable
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+FOOD_AVG_TRIP_COST
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Average cost per trip for food
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+FOOD_COST
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Total annual food cost
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+FUEL_AVG_TRIP_COST
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Average cost per trip for fuel
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+FUEL_COST
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Total annual fuel cost
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GEAR_TYPE
+</td>
+<td style="text-align:left;">
+VARCHAR2(40)
+</td>
+<td style="text-align:left;">
+Primary gear used based on the gear which yeilded the highest revenues from the last year active (either 2021 or 2022)
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+HAULOUT_COST
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+New/replacement, repair/maintenance, and/or upgrade cost for haul-outs such as haul-out costs for regular repair and maintenance, emergency haul-out, long term storage, zincs, bottom paint, acid wash and gel coating
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+HULLNUM
+</td>
+<td style="text-align:left;">
+VARCHAR2(30)
+</td>
+<td style="text-align:left;">
+Official vessel registration number
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ICE_AVG_TRIP_COST
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Average cost per trip for ice cost
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ICE_COST
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Total annual ice cost
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ICF_MASTER_ID
+</td>
+<td style="text-align:left;">
+VARCHAR2(40)
+</td>
+<td style="text-align:left;">
+Identifying code assigned to the record during the time of implementation. This serves as a unique identfier for each record.
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+IFQ_RECOVERY_COST
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+IFQ Cost Recovery Fees
+</td>
+<td style="text-align:left;">
+Scallop dredge survey only
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LAST_QUESTION_FILLED
+</td>
+<td style="text-align:left;">
+VARCHAR2(100)
+</td>
+<td style="text-align:left;">
+Last question the participant filled in the survey
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LEASING_QUOTA_REVENUE
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Gross revenues earned from leasing OUT quota or DAS from permits associated with the selected vessel
+</td>
+<td style="text-align:left;">
+<ul>
+<li>Will need to divide through by number of vessels owned for 2015 (asked for either single vessel or all vessels in 2022)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LEGAL_FEES
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Total annual legal expenses including settlement and
+legal fees paid for the selected vessel
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LEGAL_FEES_ALLVES
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Total annual legal expenses including settlement and
+legal fees paid for all owned vessels
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MOORING_FEES
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Mooring/Docking Fees including upkeep expenses paid
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NONCREW_LABOR_COST
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Additional Labor Payments including payments to accountants, office administrative assistants, bookkeepers, and night watchmen associated with the selected vessel
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NONCREW_LABOR_COST_ALLVES
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Additional Labor Payments including payments to accountants, office administrative assistants, bookkeepers, and night watchmen associated with all vessels owned
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+OFFICE_EXP
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Total annual Office/Workshop/Storage Expenses including office/workshop supplies, office utilities (electric, heat, internet, etc.), rental of office/ shed/freezer space, excluding communication costs for the selected vessel
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+OFFICE_EXP_ALLVES
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Total annual Office/Workshop/Storage Expenses including office/workshop supplies, office utilities (electric, heat, internet, etc.), rental of office/ shed/freezer space, excluding communication costs for all vesseled owned
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+OS_NAME
+</td>
+<td style="text-align:left;">
+VARCHAR2(80)
+</td>
+<td style="text-align:left;">
+Device OS
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+OS_VERSION
+</td>
+<td style="text-align:left;">
+VARCHAR2(50)
+</td>
+<td style="text-align:left;">
+Device OS Version
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+OTHER_COSTS_PRESENT
+</td>
+<td style="text-align:left;">
+VARCHAR2(3)
+</td>
+<td style="text-align:left;">
+Did the participant have any additional costs not listed in the survey? (YES/NO)
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+OTHR_VES_COST1
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Any other costs in 2022 for the selected vessel not asked in the survey, value 1
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+OTHR_VES_COST1_DESC
+</td>
+<td style="text-align:left;">
+VARCHAR2(1000)
+</td>
+<td style="text-align:left;">
+Any other costs in 2022 for the selected vessel not asked in the survey, value 1 description
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+OTHR_VES_COST2
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Any other costs in 2022 for the selected vessel not asked in the survey, value 2
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+OTHR_VES_COST2_DESC
+</td>
+<td style="text-align:left;">
+VARCHAR2(1000)
+</td>
+<td style="text-align:left;">
+Any other costs in 2022 for the selected vessel not asked in the survey, value 2 description
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PACKING_AVG_TRIP_COST
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Average cost per trip for At-sea Processing, At-sea Boxing/Packaging
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PARALYTIC_AVG_TRIP_COST
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Average cost per trip for paralytic shellfish testing
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PARALYTIC_TESTING
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Total annual cost for paralytic shellfish testing
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PAYMENT_SYSTEM
+</td>
+<td style="text-align:left;">
+VARCHAR2(20)
+</td>
+<td style="text-align:left;">
+Method used to pay crew. Use look-up table VCS_CREW_PAYMENT_SYSTEM. Examples include, flat rate, shared system, both etc.
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PERMIT
+</td>
+<td style="text-align:left;">
+VARCHAR2(6)
+</td>
+<td style="text-align:left;">
+Vessel Federal Permit Number
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PERMITS_VAL
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Estimated market value of the fishing permits or fishing history associated with the vessel as of December 31, 2022
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PERMITS_VAL_KNOWN
+</td>
+<td style="text-align:left;">
+VARCHAR2(20)
+</td>
+<td style="text-align:left;">
+Indiciator variable of whether or not the value of permits was known, not known or the individual perfers not to answer
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PERMIT_FEES
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+State and Federal Permits and/or License Renewal Fees
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PRIMARY_GEAR
+</td>
+<td style="text-align:left;">
+VARCHAR2(400)
+</td>
+<td style="text-align:left;">
+In 2022, the primary gear was generated during the sampling frame creation phase and is based on the top species revenue for the last year active (either 2021 or 2022) This variable is used to create GEAR_TYPE and is not a question in the survey itself.
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+QUOTA_DAS_LEASING
+</td>
+<td style="text-align:left;">
+VARCHAR2(3)
+</td>
+<td style="text-align:left;">
+Did the vessel lease IN or lease OUT quota and had no Research Set-Aside (RSA) costs in 2022 (Yes or No)
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+QUOTA_DAS_PYMTS
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Record the total cost from leasing IN quota or DAS from permits associated with the selected vessel.
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+QUOTA_DAS_PYMTS_MULT_VES
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Record the total cost from leasing IN quota or DAS from permits associated with multiple vessels
+</td>
+<td style="text-align:left;">
+Will need to divide through by number of vessels owned to create QUOTA_DAS_PYMTS to get common variable
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+QUOTA_DAS_PYMTS_VES_NUM
+</td>
+<td style="text-align:left;">
+NUMBER(3)
+</td>
+<td style="text-align:left;">
+Number of vessels associated with leasing IN quota or DAS from permits when associated with multiple vessels
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+QUOTA_MONITORING_COST
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Total quota monitoring costs (observer, dockside monitoring equipment cost, etc.)
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+QUOTA_PYMT_SYS
+</td>
+<td style="text-align:left;">
+VARCHAR2(100)
+</td>
+<td style="text-align:left;">
+How were quota costs paid? (100% by boat/owner, 100% paid by crew, shared costs)
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+QUOTA_PYMT_SYS_BOAT_PCT
+</td>
+<td style="text-align:left;">
+NUMBER(5,2)
+</td>
+<td style="text-align:left;">
+If quota costs were shared, percentage was paid by the boat (%)
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+QUOTA_PYMT_SYS_OTHER_DESC
+</td>
+<td style="text-align:left;">
+VARCHAR2(1000)
+</td>
+<td style="text-align:left;">
+Description if “other” quota payment was selected
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+REFUSAL_INELIGIBLE_PARTIAL
+</td>
+<td style="text-align:left;">
+NUMBER(1)
+</td>
+<td style="text-align:left;">
+0 = Complete response (see complete 1 and comlete 2) 1 = Refusal where no data provided other than comments are provided and 2 = Ineligible where the individual was confirmed to have a valid reason where they are exempt from taking the survey (such as they sold thier federal permit or vessel at the beginning of 2022) but submitted the survey. 3 = Partial response where any value in this dataset is populated
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RESPONDENT_EMAIL
+</td>
+<td style="text-align:left;">
+VARCHAR2(90)
+</td>
+<td style="text-align:left;">
+Email address of survey taker
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RESPONDENT_NAME
+</td>
+<td style="text-align:left;">
+VARCHAR2(1000)
+</td>
+<td style="text-align:left;">
+Name of survey participant
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RESPONDENT_PHONE
+</td>
+<td style="text-align:left;">
+VARCHAR2(10)
+</td>
+<td style="text-align:left;">
+Phone number of survey taker
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RMUI_DECK_EQPT_EXP
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+New/replacement, repair/maintenance, and/or upgrade cost for Deck Equipment / Other Machinery
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RMUI_ELECTRONICS_EXP
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+New/replacement, repair/maintenance, and/or upgrade cost for wheelhouse electronics, not including electronic monitoring costs.
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RMUI_ENGINE_EXP
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+New/replacement, repair/maintenance, and/or upgrade cost for vessel propulsion engine
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RMUI_GEAR_EXP
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+New/replacement, repair/maintenance, and/or upgrade cost for fishing gear
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RMUI_HULL_EXP
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+New/replacement, repair/maintenance, and/or upgrade cost for the hull such as frame, deck, wheelhouse etc.
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RMUI_PROCESS_REFRIG_EXP
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+New/replacement, repair/maintenance, and/or upgrade cost for processing and refridgeration not including shoreside freezers or the cost of ice
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RMUI_SAFETY_EQPT_EXP
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+New/replacement, repair/maintenance, and/or upgrade cost for cost safety equiptment
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RMUI_SEINE_SKIFF_EXP
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+New/replacement, repair/maintenance, and/or upgrade cost for seine skiff
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SPOTTER_PLANE_COST
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Total annual Spotter Planes, Drones or Other Aerial
+Search Expenses for the selected vessel
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SPOTTER_PLANE_COST_ALLVES
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Total annual Spotter Planes, Drones or Other Aerial
+Search Expenses for all vessels owned
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SURVEY_DURATION_MINS
+</td>
+<td style="text-align:left;">
+NUMBER
+</td>
+<td style="text-align:left;">
+Duration of connection in minutes (online responses only)
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SURVEY_MODE
+</td>
+<td style="text-align:left;">
+NUMBER(1)
+</td>
+<td style="text-align:left;">
+Mode of survey response (online, mail, or interview)
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SURVEY_VERSION
+</td>
+<td style="text-align:left;">
+VARCHAR2(40)
+</td>
+<td style="text-align:left;">
+Version of the survey recieved and filled by the survey participant based on type of gear used based on last year active. Survey versions include: Multiple Gear, Trawl, Longline, Gillnet, Scallop Dredge, Hydraulic Dredge (big business), Hydraulic Dredge (small business) Seine, Pot/Trap and Handgear.
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SURVEY_YEAR
+</td>
+<td style="text-align:left;">
+NUMBER(4)
+</td>
+<td style="text-align:left;">
+Year survey data pertains to
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TRAILER_LAUNCH_FEES
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Launch and Trailer Fees
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TRIP_COST_OWNER_PAID_PCT
+</td>
+<td style="text-align:left;">
+NUMBER(5)
+</td>
+<td style="text-align:left;">
+Percentage of trip expenses paid by boat owner
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TRIP_COST_PYMT_SYS
+</td>
+<td style="text-align:left;">
+VARCHAR2(20)
+</td>
+<td style="text-align:left;">
+Timing of trip expense payment - off the top, after shares are split, other
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TRIP_COST_PYMT_SYS_OTHER_DESC
+</td>
+<td style="text-align:left;">
+VARCHAR2(4000)
+</td>
+<td style="text-align:left;">
+Description of other trip expense payment timing
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TRIP_COST_SHARES
+</td>
+<td style="text-align:left;">
+VARCHAR2(20)
+</td>
+<td style="text-align:left;">
+How trip expenses were paid on most commercial trips
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TRIP_COST_SHARES_OTHER_DESC
+</td>
+<td style="text-align:left;">
+VARCHAR2(4000)
+</td>
+<td style="text-align:left;">
+Description of other trip expense sharing system
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+VCS_ID
+</td>
+<td style="text-align:left;">
+VARCHAR2(70)
+</td>
+<td style="text-align:left;">
+A unique identifyer using hullnumber and survey year ID using the
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+VEHICLE_USAGE_COST
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Total annual business vehicle usage costs apportioned to the selected vessel
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+VEHICLE_USAGE_COST_ALLVES
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Total annual business vehicle usage costs across all vessels owned
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+VESSELS_NUM
+</td>
+<td style="text-align:left;">
+NUMBER(3)
+</td>
+<td style="text-align:left;">
+Number of vessels owned by the vessel owner. This question was only presented to those who answered a question related to multiple vessels.
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+VESSEL_ACTIVITY
+</td>
+<td style="text-align:left;">
+VARCHAR2(30)
+</td>
+<td style="text-align:left;">
+Indication of vessel activity during 2022: vessel took commercial trips; vessel took no commercial trips but took recreational or other types of trips; vessel was inactive
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+VESSEL_NAME
+</td>
+<td style="text-align:left;">
+VARCHAR2(80)
+</td>
+<td style="text-align:left;">
+Name of the vessel (Note, not a unique identifier in 2022)
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+VESSEL_OR_PERMIT_PYMTS
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Vessel or Permit Payments/Financing including the amount paid on down payments or loans on vessel/permit purchases,
+made, including tax
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+VESSEL_VAL
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Estimated market value of the vessel, including all equipment and fishing gear as of December 31, 2022. Fishing permits or fishing history associated with the vessel not included.
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+VESSEL_VAL_KNOWN
+</td>
+<td style="text-align:left;">
+VARCHAR2(20)
+</td>
+<td style="text-align:left;">
+Indiciator variable of whether or not the value of the vessel was known, not known or the individual perfers not to answer
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+VES_INSURANCE_COST
+</td>
+<td style="text-align:left;">
+NUMBER(9)
+</td>
+<td style="text-align:left;">
+Annual Vessel Insurance Premium for 2022; annual premium
+paid for hull and Protection &amp; Indemnity (P &amp; I) insurance in 2022
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+VES_INSURED_MONTHS
+</td>
+<td style="text-align:left;">
+NUMBER(2)
+</td>
+<td style="text-align:left;">
+Number of months vessel was insured in 2022
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+VES_LAIDUP_MONTHS
+</td>
+<td style="text-align:left;">
+NUMBER(2)
+</td>
+<td style="text-align:left;">
+Number of months vessel was laid up/out of water in 2022
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+YEAR_ACQUIRED
+</td>
+<td style="text-align:left;">
+NUMBER(4)
+</td>
+<td style="text-align:left;">
+Year vessel owner aquired the vessel
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CREW_CAPT_PAYMTS_MADE
+</td>
+<td style="text-align:left;">
+VARCHAR2(3)
+</td>
+<td style="text-align:left;">
+Whether crew and or captains were paid or provided benefits in 2022 (Yes/No)
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+</tbody>
+</table>
+</div></li>
+</ul>
 
 </div>
 </div>

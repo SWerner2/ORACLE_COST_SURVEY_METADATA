@@ -107,15 +107,14 @@ cost2012<-VCS_COST2012
 
 
 ```{r chunk1-4, echo = FALSE, warning = FALSE, message = FALSE }
-#  library(dplyr)
-#  library(dbplyr)
-#  library(readxl)
+# # library(dplyr)
+# library(dbplyr)
+# library(readxl)
 # library(tidyverse)
 # library(knitr)
-#  library(kableExtra)
-
- #setwd("C:/Users/samantha.l.werner/Desktop/Github/ORACLE_COST_SURVEY_METADATA/ORACLE_COST_SURVEY_METADATA/data")
-
+# library(kableExtra)
+# 
+# setwd("C:/Users/samantha.l.werner/Desktop/Github/ORACLE_COST_SURVEY_METADATA/ORACLE_COST_SURVEY_METADATA/data")
 VCS_COST2015 <- read_excel(here::here("data/ORACLE_METADATA.xlsx"), sheet = "VCS_COST2015") 
 
 cost2015<-VCS_COST2015
@@ -133,7 +132,7 @@ cost2015<-VCS_COST2015
  
 
 
-```{r chunk1-4, echo = FALSE, warning = FALSE, message = FALSE }
+```{r chunk1-5, echo = FALSE, warning = FALSE, message = FALSE }
 # library(dplyr)
 # library(dbplyr)
 # library(readxl)
