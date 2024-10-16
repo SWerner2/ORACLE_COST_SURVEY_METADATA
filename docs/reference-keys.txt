@@ -1,15 +1,4 @@
-tab:chunk1-1
-tab:chunk1-2
-tab:chunk1-3
-tab:chunk1-4
 tab:chunk2-1
-tab:chunk2-2
-tab:chunk2-3
-tab:chunk2-4
-tab:chunk2-5
-tab:chunk2-6
-tab:chunk2-7
-tab:chunk2-8
 overview
 ssb-cost-survey
 response-rates
@@ -20,6 +9,7 @@ vcs_common_variables_mv
 vcs_cost2011
 vcs_cost2012
 vcs_cost2015
+vcs_cost2022
 support-tables
 vcs_captain_status
 vcs_gears
@@ -29,4 +19,7 @@ vcs_status_options
 vcs_survey_details
 vcs_cost_categories
 vcs_cost_categories-1
+merging-to-other-databases
+merging-varaibles-table
+merging-cost-data-linking-file-to-other-databases
 additional-resources
