@@ -23,7 +23,7 @@
 <meta name="author" content="Samantha Werner, Gregory Ardini, Elizabeth Conley and Tanya Noteva" />
 
 
-<meta name="date" content="2024-10-16" />
+<meta name="date" content="2024-12-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -135,9 +135,9 @@
 <p>This page describes how to link cost data to other databases of potential interest. First, you will need to link to an intermediate merging file with the linking variables using the guidance below.</p>
 <div id="merging-varaibles-table" class="section level2 hasAnchor" number="4.1">
 <h2><span class="header-section-number">4.1</span> Merging Varaibles Table<a href="merging-to-other-databases.html#merging-varaibles-table" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Merging from VCS_COMMON_VARIABLES_MV to linking table
+<p>Merging from VCS_COMMON_VARIABLES_MV to the VCS_CROSS_DB_LINKS table:
 merge on HULLNUM and SURVEY_YEAR</p>
-<p>Merging from VCS_costsYYY to linking table
+<p>Merging from individual VCS_costsYYY to VCS_CROSS_DB_LINKS table:
 2022 – merge on PERMIT &amp; SURVEY_YEAR
 2011 – Merge on HULLNUM and SURVEY_YEAR
 2012 – Merge on HULLNUM and SURVEY_YEAR
@@ -145,7 +145,7 @@ merge on HULLNUM and SURVEY_YEAR</p>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:300px; overflow-x: scroll; width:600px; ">
 <table class="table table-striped table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:chunk3-1">Table 4.1: </span>VCS_CAPTAIN_STATUS
+<span id="tab:chunk3-1">Table 4.1: </span>VCS_CROSS_DB_LINKS
 </caption>
 <thead>
 <tr>
@@ -156,41 +156,82 @@ Variable Name
 Type
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-Description
+Nullable
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-Nullable
+Description
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:left;">
-CAPTAIN_STATUS_ID
-</td>
-<td style="text-align:left;">
-NUMBER(1,0)
-</td>
-<td style="text-align:left;">
-Numeric ID used to link to the CAPTAIN_STATUS_DESC variable
-</td>
-<td style="text-align:left;">
-No
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-CAPTAIN_STATUS_DESC
+HULLNUM
 </td>
 <td style="text-align:left;">
 VARCHAR2(30 BYTE)
 </td>
 <td style="text-align:left;">
-Written description of who was the captian of the majority of trips (Mostly Hired Captain
-Mostly Owner-operated , Split Evenly, No Trips This Year, Other)
+Yes
+</td>
+<td style="text-align:left;">
+A state registration or a coast guard documentation number (same as the hull identifier or Hull I.D.)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PERMIT
+</td>
+<td style="text-align:left;">
+VARCHAR2(6 BYTE)
 </td>
 <td style="text-align:left;">
 Yes
+</td>
+<td style="text-align:left;">
+Vessel permit number (aka VP_NUM in Permit database)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LAST_YEAR_ACTIVE
+</td>
+<td style="text-align:left;">
+NUMBER(4,0)
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Last year the vessel had revenues reported from a federal dealer at the time the sampling frame was generated for each survey year
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AP_NUM
+</td>
+<td style="text-align:left;">
+NUMBER(7,0)
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+The unique application number which connects a fishery record to a vessel permit application, when the vessel was selected for sampling.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SURVEY_YEAR
+</td>
+<td style="text-align:left;">
+NUMBER(4,0)
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Year in which the costs were incurred and collected for within the survey
 </td>
 </tr>
 </tbody>

@@ -5,10 +5,10 @@ This page describes how to link cost data to other databases of potential intere
 
 
 ## Merging Varaibles Table 
-Merging from VCS_COMMON_VARIABLES_MV to linking table 
+Merging from VCS_COMMON_VARIABLES_MV to the  VCS_CROSS_DB_LINKS table: 
 merge on HULLNUM and SURVEY_YEAR
 
-Merging from VCS_costsYYY to linking table 
+Merging from individual VCS_costsYYY to  VCS_CROSS_DB_LINKS table: 
 2022 – merge on PERMIT & SURVEY_YEAR
 2011 – Merge on HULLNUM and SURVEY_YEAR
 2012 – Merge on HULLNUM and SURVEY_YEAR
@@ -26,11 +26,11 @@ library(kableExtra)
 #setwd("C:/Users/samantha.l.werner/Desktop/Github/ORACLE_COST_SURVEY_METADATA/ORACLE_COST_SURVEY_METADATA/data")
 
 
-capt_status <- read_excel(here::here("data/Support.xlsx"), sheet = "VCS_CAPTAIN_STATUS") 
+data2022 <- read_excel(here::here("data/Support.xlsx"), sheet = "VCS_CROSS_DB_LINKS") 
 
-capt<-capt_status
+dblnk<-data2022
 #COMVAR %>%
-  kbl(capt, "html", caption ='VCS_CAPTAIN_STATUS') %>%
+  kbl(dblnk, "html", caption ='VCS_CROSS_DB_LINKS') %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed", full_width=F)) %>%
   scroll_box(width = "600px", height = "300px")
 ```
